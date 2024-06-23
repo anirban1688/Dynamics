@@ -1,12 +1,12 @@
 function rss_plot(t,Q)
 
-% Extract th1, th2, th3, th4, th5, th6 from y matrix
-th1 = Q(:, 1); % Replace 1 with the correct column index for th1
-th2 = Q(:, 2); % Replace 2 with the correct column index for th2
-th3 = Q(:, 3); % Replace 3 with the correct column index for th3
-th4 = Q(:, 4); % Replace 4 with the correct column index for th4
-th5 = Q(:, 5); % Replace 5 with the correct column index for th5
-th6 = Q(:, 6); % Replace 6 with the correct column index for th6
+% Extract th1, th2, th3, th4, th5, th6 from Q matrix
+th1 = Q(:, 1);
+th2 = Q(:, 2);
+th3 = Q(:, 3);
+th4 = Q(:, 4);
+th5 = Q(:, 5);
+th6 = Q(:, 6);
 
 % Plotting th1, th2, th3, th4, th5, th6 vs time in a single graph with box markers
 figure;
@@ -20,9 +20,9 @@ plot(t, th6, '-s', 'LineWidth', 2, 'DisplayName', '\theta_6');
 hold off;
 
 % Add labels and legend
-xlabel('Time');
-ylabel('Values');
-title('\theta_1 to \theta_6 vs Time');
+xlabel('Time', 'Interpreter', 'latex');
+ylabel('Values', 'Interpreter', 'latex');
+title('$\theta_1$ to $\theta_6$ vs Time', 'Interpreter', 'latex');
 legend show;
 grid on;
 
@@ -30,13 +30,13 @@ grid on;
 ax = gca;
 ax.LineWidth = 2;
 
-% Extract shi1, shi2, shi3, shi4, shi5, shi6 from y matrix
-shi1 = Q(:, 13); % Replace 13 with the correct column index for shi1
-shi2 = Q(:, 14); % Replace 14 with the correct column index for shi2
-shi3 = Q(:, 15); % Replace 15 with the correct column index for shi3
-shi4 = Q(:, 16); % Replace 16 with the correct column index for shi4
-shi5 = Q(:, 17); % Replace 17 with the correct column index for shi5
-shi6 = Q(:, 18); % Replace 18 with the correct column index for shi6
+% Extract shi1, shi2, shi3, shi4, shi5, shi6 from Q matrix
+shi1 = Q(:, 13);
+shi2 = Q(:, 14);
+shi3 = Q(:, 15);
+shi4 = Q(:, 16);
+shi5 = Q(:, 17);
+shi6 = Q(:, 18);
 
 % Plotting shi1, shi2, shi3, shi4, shi5, shi6 vs time in a single graph with dot markers
 figure;
@@ -50,9 +50,9 @@ plot(t, shi6, '-o', 'LineWidth', 2, 'DisplayName', '\sigma_6');
 hold off;
 
 % Add labels and legend
-xlabel('Time');
-ylabel('Values');
-title('\sigma_1 to \sigma_6 vs Time');
+xlabel('Time', 'Interpreter', 'latex');
+ylabel('Values', 'Interpreter', 'latex');
+title('$\sigma_1$ to $\sigma_6$ vs Time', 'Interpreter', 'latex');
 legend show;
 grid on;
 
@@ -60,15 +60,13 @@ grid on;
 ax = gca;
 ax.LineWidth = 2;
 
-
-% Extract phi1, phi2, phi3, phi4, phi5, phi6 from y matrix
-phi1 = Q(:, 7); % Replace 7 with the correct column index for phi1
-phi2 = Q(:, 8); % Replace 8 with the correct column index for phi2
-phi3 = Q(:, 9); % Replace 9 with the correct column index for phi3
-phi4 = Q(:, 10); % Replace 10 with the correct column index for phi4
-phi5 = Q(:, 11); % Replace 11 with the correct column index for phi5
-phi6 = Q(:, 12); % Replace 12 with the correct column index for phi6
-
+% Extract phi1, phi2, phi3, phi4, phi5, phi6 from Q matrix
+phi1 = Q(:, 7);
+phi2 = Q(:, 8);
+phi3 = Q(:, 9);
+phi4 = Q(:, 10);
+phi5 = Q(:, 11);
+phi6 = Q(:, 12);
 
 % Plotting phi1, phi2, phi3, phi4, phi5, phi6 vs time in a single graph
 figure;
@@ -82,22 +80,19 @@ plot(t, phi6, '-x', 'LineWidth', 2, 'DisplayName', '\phi_6');
 hold off;
 
 % Add labels and legend
-xlabel('Time');
-ylabel('Values');
-title('\phi_1 to \phi_6 vs Time');
+xlabel('Time', 'Interpreter', 'latex');
+ylabel('Values', 'Interpreter', 'latex');
+title('$\phi_1$ to $\phi_6$ vs Time', 'Interpreter', 'latex');
 legend show;
 grid on;
 
 % Set thick border for the plot
 set(gca, 'LineWidth', 2);
 
-
-
-
-% Extract x,y,z from y
-x = Q(:, 19); % Replace 19 with the correct column index for x
-y = Q(:, 20); % Replace 20 with the correct column index for y
-z = Q(:, 21); % Replace 21 with the correct column index for z
+% Extract x, y, z from Q matrix
+x = Q(:, 19);
+y = Q(:, 20);
+z = Q(:, 21);
 
 % Plotting x, y, z vs time in a single graph with rhombus (diamond) markers
 figure;
@@ -108,9 +103,9 @@ plot(t, z, '-d', 'LineWidth', 2, 'DisplayName', 'z');
 hold off;
 
 % Add labels and legend
-xlabel('Time');
-ylabel('Values');
-title('x, y, z vs Time');
+xlabel('Time', 'Interpreter', 'latex');
+ylabel('Values', 'Interpreter', 'latex');
+title('x, y, z vs Time', 'Interpreter', 'latex');
 legend show;
 grid on;
 
@@ -118,11 +113,10 @@ grid on;
 ax = gca;
 ax.LineWidth = 2;
 
-
-% Extract alpha,beta,gamma from y
-alpha = Q(:, 22); % Replace 22 with the correct column index for alpha
-beta = Q(:, 23); % Replace 23 with the correct column index for beta
-gamma = Q(:, 24); % Replace 24 with the correct column index for gamma
+% Extract alpha, beta, gamma from Q matrix
+alpha = Q(:, 22);
+beta = Q(:, 23);
+gamma = Q(:, 24);
 
 % Plotting alpha, beta, gamma vs time in a single graph with heart markers
 figure;
@@ -133,9 +127,9 @@ plot(t, gamma, '-h', 'MarkerFaceColor', 'r', 'MarkerEdgeColor', 'r', 'MarkerSize
 hold off;
 
 % Add labels and legend
-xlabel('Time');
-ylabel('Values');
-title('\alpha, \beta, \gamma vs Time');
+xlabel('Time', 'Interpreter', 'latex');
+ylabel('Values', 'Interpreter', 'latex');
+title('$\alpha, \beta, \gamma$ vs Time', 'Interpreter', 'latex');
 legend show;
 grid on;
 
