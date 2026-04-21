@@ -1,0 +1,34 @@
+clc; clear all; close all;
+
+syms t l1 l2 l3 theta1(t) theta2(t) theta3(t) alp1
+syms a alpha d theta
+
+% theta1 = sym(theta1(t));
+% theta2 = sym(theta2(t));
+% theta3 = sym(theta3(t));
+
+% DH function
+DH = @(a, alpha, d, theta) [ ...
+    cos(theta), -sin(theta)*cos(alpha),  sin(theta)*sin(alpha), a*cos(theta);
+    sin(theta),  cos(theta)*cos(alpha), -cos(theta)*sin(alpha), a*sin(theta);
+    0,           sin(alpha),             cos(alpha),            d;
+    0,           0,                      0,                     1];
+
+% Transformations
+T1 = DH(0, alp1, l1, theta1(t));
+T2 = DH(l2, 0, 0, theta2(t));
+T3 = DH(l3, 0, 0, theta3(t));
+
+% Rotation matrices
+R1 = T1(1:3,1:3);
+T12 = (T1*T2); R2 = T12(1:3,1:3);
+R3 = (T1*T2*T3); R3 = R3(1:3,1:3);
+
+% Angular velocity
+Omega1 = simplify(diff(R1,t)*transpose(R1));
+Omega2 = simplify(diff(R2,t)*transpose(R2));
+Omega3 = simplify(diff(R3,t)*transpose(R3));
+
+disp(Omega1)
+disp(Omega2)
+disp(Omega3)
